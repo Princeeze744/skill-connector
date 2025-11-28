@@ -153,7 +153,6 @@ pydantic_core==2.41.5
 pydeck==0.9.1
 pyee==13.0.0
 pyflakes==3.4.0
-pygame==2.5.2
 Pygments==2.19.2
 pyinstaller==6.15.0
 pyinstaller-hooks-contrib==2025.8
