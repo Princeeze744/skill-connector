@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Global Skill Connector</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>🌍 Global Skill Connector</h1>
+            <p class="subtitle">Admin Dashboard - Manage Everything with Clicks</p>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="tabs">
+        <div class="container">
+            <button class="tab-btn active" data-tab="overview">📊 Overview</button>
+            <button class="tab-btn" data-tab="users">👥 Users</button>
+            <button class="tab-btn" data-tab="skills">💼 Skills</button>
+            <button class="tab-btn" data-tab="categories">📋 Categories</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- Overview Tab -->
+        <section id="overview-tab" class="tab-content active">
+            <h2>Dashboard Overview</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-info">
+                        <h3 id="total-users">0</h3>
+                        <p>Total Users</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">💼</div>
+                    <div class="stat-info">
+                        <h3 id="total-skills">0</h3>
+                        <p>Total Skills</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">📋</div>
+                    <div class="stat-info">
+                        <h3 id="total-categories">15</h3>
+                        <p>Skill Categories</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <h3 id="api-status">Running</h3>
+                        <p>API Status</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>🎉 Welcome to Your Admin Dashboard!</h3>
+                <p><strong>This is your command center.</strong> No coding needed - just click buttons to manage everything.</p>
+                <ul>
+                    <li>✅ Click "Users" tab to see all registered users</li>
+                    <li>✅ Click "Skills" tab to see all user skills</li>
+                    <li>✅ Click "Categories" to view skill categories</li>
+                    <li>✅ Everything updates in real-time from your database</li>
+                </ul>
+                <p class="api-url">🔗 API Running at: <strong>http://localhost:8000</strong></p>
+            </div>
+        </section>
+
+        <!-- Users Tab -->
+        <section id="users-tab" class="tab-content">
+            <div class="section-header">
+                <h2>👥 All Users</h2>
+                <button class="btn btn-primary" onclick="loadUsers()">🔄 Refresh</button>
+            </div>
+            
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Full Name</th>
+                            <th>Phone</th>
+                            <th>Created</th>
+                            <th>Profile %</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-table-body">
+                        <tr>
+                            <td colspan="6" class="loading">Loading users...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Skills Tab -->
+        <section id="skills-tab" class="tab-content">
+            <div class="section-header">
+                <h2>💼 All Skills</h2>
+                <button class="btn btn-primary" onclick="loadAllSkills()">🔄 Refresh</button>
+            </div>
+            
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>User Email</th>
+                            <th>Skill Name</th>
+                            <th>Category</th>
+                            <th>Experience</th>
+                            <th>Rate</th>
+                            <th>Available</th>
+                        </tr>
+                    </thead>
+                    <tbody id="skills-table-body">
+                        <tr>
+                            <td colspan="6" class="loading">Loading skills...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Categories Tab -->
+        <section id="categories-tab" class="tab-content">
+            <div class="section-header">
+                <h2>📋 Skill Categories</h2>
+                <button class="btn btn-primary" onclick="loadCategories()">🔄 Refresh</button>
+            </div>
+            
+            <div class="categories-grid" id="categories-grid">
+                <div class="loading">Loading categories...</div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>🚀 Built with FastAPI + Modern Web Standards | Zero Cost Platform</p>
+            <p>Phase 4 Complete: User Profiles & Skills System</p>
+        </div>
+    </footer>
+
+    <script src="admin.js"></script>
+</body>
+</html>
